@@ -6,7 +6,7 @@
 #    By: flima <flima@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/21 14:49:01 by flima             #+#    #+#              #
-#    Updated: 2024/10/21 19:55:13 by flima            ###   ########.fr        #
+#    Updated: 2024/10/22 17:26:42 by flima            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ INCLUDE = -I $(DIR_LIBFT)
 
 AR = ar -rcs
 
-SRCS = ft_printf.c ft_utils.c \
+SRCS = ft_printf.c ft_utils.c ft_nbr_tohex.c\
 
 OBJS = $(SRCS:.c=.o)
 

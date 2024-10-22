@@ -6,7 +6,7 @@
 /*   By: flima <flima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:09:52 by flima             #+#    #+#             */
-/*   Updated: 2024/10/21 20:35:56 by flima            ###   ########.fr       */
+/*   Updated: 2024/10/22 18:07:31 by flima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_putchar_n(int c)
 int	ft_putstr_n(char *s)
 {
 	int	len;
-
+	
 	len = ft_strlen(s);
 	if (write(1, s, len) == -1)
 		return (-1);
