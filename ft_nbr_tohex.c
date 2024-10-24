@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tohex.c                                         :+:      :+:    :+:   */
+/*   ft_nbr_tohex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flima <flima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 13:01:45 by flima             #+#    #+#             */
-/*   Updated: 2024/10/22 17:25:24 by flima            ###   ########.fr       */
+/*   Updated: 2024/10/24 15:49:34 by flima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-
-static int	str_hexsize(unsigned long n)
+static int	str_hexlen(unsigned long n)
 {
 	int	len;
 
@@ -30,38 +29,37 @@ static int	str_hexsize(unsigned long n)
 
 int	ptr_tohex(unsigned long nbr)
 {
-	int		size;
+	int		len;
 	char	*str;
 	char	*hex;
 
-
-	size = str_hexsize(nbr);
+	len = str_hexlen(nbr);
 	hex = "0123456789abcdef";
-	str = (char *)malloc((size + 3) * sizeof(char));
+	str = (char *)malloc((len + 3) * sizeof(char));
 	if (str == NULL)
 		return (-1);
 	str[0] = '0';
 	str[1] = 'x';
-	str[size + 2] = '\0';
-	while (size > 0)
+	str[len + 2] = '\0';
+	while (len > 0)
 	{
-		str[size + 1] = hex[nbr % 16];
+		str[len + 1] = hex[nbr % 16];
 		nbr = nbr / 16;
-		size--;
+		len--;
 	}
-	size = ft_putstr_n(str);
+	len = ft_putstr_n(str);
 	free(str);
-	return (size);
+	return (len);
 }
 
-static char	*nbr_tohex(unsigned int	nbr, const char *hex)
+static char	*nbr_tohex(unsigned int nbr, const char *hex)
 {
 	int		len;
 	char	*str;
 	char	*hex_temp;
 
 	hex_temp = (char *)hex;
-	len = str_hexsize(nbr);
+	len = str_hexlen(nbr);
 	str = (char *)malloc((len + 1) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
@@ -94,13 +92,3 @@ int	dec_tohex(unsigned int n, const char *chr)
 	free(hex);
 	return (len);
 }
-
-// int main(void)
-// {
-// 	int i;
-// 	const char *c = "Xtt";
-	
-// 	i = dec_tohex(7921315, c);
-// 	printf("\n%d", i);
-// 	return 0;
-// }

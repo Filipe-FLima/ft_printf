@@ -6,7 +6,7 @@
 #    By: flima <flima@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/21 14:49:01 by flima             #+#    #+#              #
-#    Updated: 2024/10/22 17:26:42 by flima            ###   ########.fr        #
+#    Updated: 2024/10/24 16:05:59 by flima            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Werror -Wextra
 
 DIR_LIBFT = Libft
 
-LIBFT = ./Libft/libft.a
+LIBFT = Libft/libft.a
 
 INCLUDE = -I $(DIR_LIBFT)
 
@@ -34,7 +34,7 @@ $(LIBFT):
 		@$(MAKE) -C $(DIR_LIBFT)
 
 $(NAME): $(LIBFT) $(OBJS)
-		cp $(LIBFT) $(NAME)
+		@cp $(LIBFT) $(NAME)
 		@$(AR) $(NAME) $(OBJS) $(LIBFT)
 
 	

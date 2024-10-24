@@ -6,13 +6,11 @@
 /*   By: flima <flima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:09:52 by flima             #+#    #+#             */
-/*   Updated: 2024/10/22 18:07:31 by flima            ###   ########.fr       */
+/*   Updated: 2024/10/24 16:19:53 by flima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-// #include <unistd.h>
-// #include <stdio.h>
 
 int	ft_putchar_n(int c)
 {
@@ -24,7 +22,7 @@ int	ft_putchar_n(int c)
 int	ft_putstr_n(char *s)
 {
 	int	len;
-	
+
 	len = ft_strlen(s);
 	if (write(1, s, len) == -1)
 		return (-1);
@@ -57,7 +55,7 @@ static int	str_size(unsigned int n)
 	return (len);
 }
 
-int	ft_putuns_n(unsigned int n)
+int	ft_putunsig_n(unsigned int n)
 {
 	char			*str;
 	unsigned int	size;
