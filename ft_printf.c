@@ -6,7 +6,7 @@
 /*   By: flima <flima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 16:42:17 by flima             #+#    #+#             */
-/*   Updated: 2024/10/24 15:50:15 by flima            ###   ########.fr       */
+/*   Updated: 2024/10/27 18:09:38 by flima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	print_conversion(va_list args, const char *format)
 	else if (*format == 'u')
 		n = ft_putunsig_n(va_arg(args, unsigned int));
 	else if (*format == 'p')
-		n = ptr_tohex(va_arg(args, unsigned long));
+		n = ptr_tohex(va_arg(args, uintptr_t));
 	else if (*format == 'X' || *format == 'x')
 		n = dec_tohex((va_arg(args, int)), format);
 	return (n);
@@ -64,3 +64,15 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
+
+// int	main(void)
+// {
+// 	int	size;
+// 	int	size1;
+// 	char *s = NULL;
+
+// 	size = printf("%s%p%u%x%X%%%c\n", s, NULL, 0, 0, 0, 'a');
+// 	size1 = ft_printf("%s%p%u%x%X%%%c\n", s, NULL, 0, 0, 0, 'a');
+// 	printf("%d\n%d", size, size1);
+// 	return 0;
+// }
